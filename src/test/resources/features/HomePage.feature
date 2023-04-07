@@ -9,5 +9,5 @@ Background:
 
   @VeifyHomePage
   Scenario: Verify The Home page Tabs
-				Then User should validate "Admi" tabs clickable in HomePage
+				Then User should validate "Admin" tabs clickable in HomePage
  
