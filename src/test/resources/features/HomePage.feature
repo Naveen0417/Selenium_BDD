@@ -10,4 +10,8 @@ Background:
   @VeifyHomePage
   Scenario: Verify The Home page Tabs
 				Then User should validate "Admin" tabs clickable in HomePage
+				
+	@VeifyPIMtab
+	Scenario: Verify The Home page Tabs
+				Then User should validate "PIM" tabs clickable in HomePage
  
