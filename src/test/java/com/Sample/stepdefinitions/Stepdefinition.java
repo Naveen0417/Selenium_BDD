@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -20,6 +21,7 @@ public class Stepdefinition {
 
 	private static WebDriver driver;
 	public final static int TIMEOUT = 30;
+	SoftAssert soft = new SoftAssert();
 
 	@Before
 	public void setUp() {
@@ -34,6 +36,7 @@ public class Stepdefinition {
 	public void teardown() {
 
 		driver.quit();
+		soft.assertAll();
 	}
 
 	@Given("User is on HRMLogin page {string}")
@@ -57,7 +60,8 @@ public class Stepdefinition {
 		String PageTitle = driver.getTitle();
 
 		// Verify new page - HomePage
-		Assert.assertEquals(PageTitle, "OrangeHRM");
+		//Assert.assertEquals(PageTitle, "OrangeHRM");
+		soft.assertEquals(PageTitle, "OrangeHR");
 	}
 
 	@Then("User should validate {string} tabs clickable in HomePage")
